@@ -59,9 +59,9 @@
 
 // };
 import { useState, useEffect } from "react";
-import { getProducts, createProduct as apiCreateProduct } from "../services/productService";
-import { useProductStore, Product } from "../store/AdminProductStore";
-
+import { getProducts,deleteProduct, createProduct as apiCreateProduct } from "../services/productService";
+import { useProductStore } from "../store/AdminProductStore";
+import {Product} from "../types/Product";
 export const useProducts = () => {
   const { products, setProducts } = useProductStore();
   const [loading, setLoading] = useState<boolean>(true);
@@ -93,5 +93,15 @@ export const useProducts = () => {
     setError((err as Error).message);
   }
 };
-  return { products, loading, error, createProduct };
+const handleDelete = async (id: string) => { 
+  try {
+    await deleteProduct(id); 
+    setProducts(products.filter((product) => product._id !== id)); // Cập nhật state
+    alert("Xóa sản phẩm thành công!");
+  } catch (error) {
+    console.error("Lỗi khi xóa sản phẩm:", error);
+  }
+};
+    
+  return { products, loading, error, createProduct ,handleDelete };
 };
