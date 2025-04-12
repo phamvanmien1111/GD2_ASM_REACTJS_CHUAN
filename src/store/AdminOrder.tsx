@@ -1,10 +1,14 @@
 import { create } from "zustand";
 
 interface order{
-      name: string;
+    _id:string;
+    name: string;
+    customerName:string;
+    orderDate:string;
     price:number;
     image:string;
     quantity:number;
+    status:string;
     totalPrice:number;
 }
 interface orderStore{

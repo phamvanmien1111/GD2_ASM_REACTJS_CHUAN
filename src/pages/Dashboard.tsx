@@ -4,7 +4,7 @@ import { cn } from "../utils/utils";
 export default function Dashboard1() {
     console.log(cn("rounded-xl border bg-card text-card-foreground shadow", ""));
   return (
-    <div className="w-[84%] p-6 bg-gradient-to-br shadow-xl overflow-hidden shadow-gray-500/50 from-cyan-500 to-cyan-200 min-h-screen ml-64">
+    <div className="w-auto p-6 bg-gradient-to-br shadow-xl overflow-hidden shadow-gray-500/50 from-cyan-500 to-cyan-200 min-h-screen">
         <h1 className="text-5xl text-gray-900 ml-4 font-extrabold mb-6">Dashboard</h1>
       <div className="grid grid-cols-4 gap-6">
         <Card>
